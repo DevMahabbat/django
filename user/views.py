@@ -1,4 +1,4 @@
-import imp
+
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User 
 from django.contrib.auth import login 
@@ -12,7 +12,8 @@ def register(request):
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
-            newUser = User(username)
+            newUser = User()
+            newUser.__setattr__("username",username)
             newUser.set_password(password)
             newUser.save()
             login(request,newUser)
