@@ -3,7 +3,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User 
 from django.contrib.auth import login,authenticate
-from matplotlib.style import context 
 # Create your views here.
 
 app_name = 'user'
@@ -16,8 +15,7 @@ def register(request):
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
-            newUser = User()
-            newUser.__setattr__("username",username)
+            newUser = User(username = username)
             newUser.set_password(password)
             newUser.save()
             login(request,newUser)
@@ -42,7 +40,7 @@ def register(request):
     return render(request,"register.html",context)
 
 
-def login(request):
+def loginF(request):
     form = LoginForm(request.POST or None)
     context ={ 
         "form" :form 
@@ -61,4 +59,4 @@ def login(request):
         login(request,user) 
         return redirect("index") 
 
-    return render(request,"index.html",context)   
+    return render(request,"login.html",context)   
