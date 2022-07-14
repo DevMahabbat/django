@@ -20,8 +20,9 @@ def register(request):
             newUser.set_password(password)
             newUser.save()
             login(request,newUser)
-            return redirect('index')
             messages.success(request,"Qeydiyyat Ugurla tamamlandir")
+            return redirect('index')
+            
         context = {
             'form': form
         }
