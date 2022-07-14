@@ -1,9 +1,12 @@
 
+
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User 
 from django.contrib.auth import login 
 # Create your views here.
+
 app_name = 'user'
+from django.contrib import messages
 from .forms import RegisterForm
 def register(request):
     
@@ -18,6 +21,7 @@ def register(request):
             newUser.save()
             login(request,newUser)
             return redirect('index')
+            messages.success(request,"Qeydiyyat Ugurla tamamlandir")
         context = {
             'form': form
         }
