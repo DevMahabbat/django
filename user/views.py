@@ -2,12 +2,13 @@
 
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User 
-from django.contrib.auth import login 
+from django.contrib.auth import login,authenticate
+from matplotlib.style import context 
 # Create your views here.
 
 app_name = 'user'
 from django.contrib import messages
-from .forms import RegisterForm
+from .forms import LoginForm, RegisterForm
 def register(request):
     
     if request.method == "POST":
@@ -39,3 +40,25 @@ def register(request):
     }"""
 
     return render(request,"register.html",context)
+
+
+def login(request):
+    form = LoginForm(request.POST or None)
+    context ={ 
+        "form" :form 
+    }
+
+    if form.is_valid():
+        username= form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+        user = authenticate(username=username,password=password)
+        
+        if user is None:
+            messages.info(request,"Istifadeci adi ve ya parol yalnisdir")
+            return(render,"login.html",context)
+
+        messages.success(request,"Ugurla giris etdiniz")
+        login(request,user) 
+        return redirect("index") 
+
+    return render(request,"index.html",context)   
