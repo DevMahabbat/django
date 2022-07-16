@@ -1,19 +1,30 @@
-    <nav class="navbar">
-        <div class="navbar-container container">
-            <input type="checkbox" name="" id="">
-            <div class="hamburger-lines">
-                <span class="line line1"></span>
-                <span class="line line2"></span>
-                <span class="line line3"></span>
+
+
+
+<div class="nav-wrapper">
+            <div class="logo-container">
+                <img class="logo" src="https://i.imgur.com/gea725J.png" alt="Logo">
             </div>
-            <ul class="menu-items">
-                <li><a href="/register">register</a></li>
-                <li><a href="/login">login</a></li>
-                <li><a href="#">Category</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Testimonial</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <h1 class="logo">Navbar</h1>
+            <nav>
+                <input class="hidden" type="checkbox" id="menuToggle">
+                <label class="menu-btn" for="menuToggle">
+                    <div class="menu"></div>
+                    <div class="menu"></div>
+                    <div class="menu"></div>
+                </label>
+                <div class="nav-container">
+                    <ul class="nav-tabs">
+                        <li class="nav-tab">Home</li>
+                        <li class="nav-tab">Products</li>
+                        <li class="nav-tab">Services</li>
+                        <li class="nav-tab"><a href="login">Login</a></li>
+                        <li class="nav-tab"><a href="logout">Logout</a></li>
+                        <li class="nav-tab"><a href="register">Register</a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-    </nav>
+    </header>
+    <div class="center"> 
+        <h1>Resize window to 800px to toggle menu</h1>
+    </div> 

@@ -6,5 +6,6 @@ from .views import  register
 from . import views
 urlpatterns = [
    path("register",register ),
-   path("login",views.loginF,name="login")
+   path("login",views.loginF),
+   path("logout",views.logOut)
 ]

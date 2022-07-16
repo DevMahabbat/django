@@ -2,7 +2,7 @@
 
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User 
-from django.contrib.auth import login,authenticate
+from django.contrib.auth import login,authenticate,logout
 # Create your views here.
 
 app_name = 'user'
@@ -53,10 +53,14 @@ def loginF(request):
         
         if user is None:
             messages.info(request,"Istifadeci adi ve ya parol yalnisdir")
-            return(render,"login.html",context)
+            return (render,"login.html",context)
 
         messages.success(request,"Ugurla giris etdiniz")
         login(request,user) 
         return redirect("index") 
 
-    return render(request,"login.html",context)   
+    return render(request,"login.html",context)
+def logOut(request):
+    logout(request)
+    messages.success(request,"Başarıyla Çıkış Yaptınız")
+    return redirect("index")
