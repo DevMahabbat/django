@@ -7,5 +7,7 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path('', views.index,name="index"),
-    path('about/<int:id>',views.about)
+    path('about/<int:id>',views.about),
+    path('dashboard',views.dashboard),
+    path('addarticle',views.addArticle)
 ]

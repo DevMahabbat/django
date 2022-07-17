@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+
+<p> Xos geldiniz , {{request.user.username}}</p>
+<hr>
+<button class="btn btn-danger"><a class='btn btn-danger'href="addarticle"> Add Article </a></button>
+
+{% endblock main %}

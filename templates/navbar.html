@@ -17,9 +17,13 @@
                         <li class="nav-tab">Home</li>
                         <li class="nav-tab">Products</li>
                         <li class="nav-tab">Services</li>
-                        <li class="nav-tab"><a href="login">Login</a></li>
-                        <li class="nav-tab"><a href="logout">Logout</a></li>
-                        <li class="nav-tab"><a href="register">Register</a></li>
+                        {% if request.user.is_authenticated %}
+                            <li class="nav-tab"><a href="logout">Logout</a></li>
+                        {% else %}
+                            <li class="nav-tab"><a href="login">Login</a></li>
+                            <li class="nav-tab"><a href="register">Register</a></li>
+                        {% endif %}
+                        
                     </ul>
                 </div>
             </nav>
