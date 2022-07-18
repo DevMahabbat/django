@@ -14,9 +14,9 @@
                 </label>
                 <div class="nav-container">
                     <ul class="nav-tabs">
-                        <li class="nav-tab">Home</li>
+                        <li class="nav-tab >Home</li>
                         <li class="nav-tab">Products</li>
-                        <li class="nav-tab">Services</li>
+                        <li class="nav-tab"><a href="dashboard">Dashboard</a></li>
                         {% if request.user.is_authenticated %}
                             <li class="nav-tab"><a href="logout">Logout</a></li>
                         {% else %}
