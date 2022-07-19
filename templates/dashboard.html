@@ -5,9 +5,10 @@
 
 <p> Xos geldiniz , {{request.user.username}}</p>
 <hr>
-<button class="btn btn-danger"><a class='btn btn-danger'href="addarticle"> Add Article </a></button>
+<a class='btn btn-danger' href="addarticle"> Add Article </a>
 
 <hr>
+{% if articles %}
 
 <table class="table">
   <thead class="thead-dark">
@@ -20,6 +21,7 @@
     </tr>
   </thead>
   <tbody>
+
     {% for article in articles %}
     <tr>
       <th scope="row">{{article.id}}</th>
@@ -27,6 +29,11 @@
       <td>{{article.author}}</td>
       <td>{{article.explanation}}</td>
       <td>{{article.createdDate}}</td>
+      <td><a href="" class = "btn btn-danger">Yenilə</a></td>
+        <td><a href="" class = "btn btn-danger">Sil</a> </td>
     </tr>
     {% endfor %}
+    {% else %}
+    <div class="alert alert-danger"> Artikl yoxdur</div>
+    {% endif %}
 {% endblock main %}
