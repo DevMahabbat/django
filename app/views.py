@@ -43,3 +43,17 @@ def addArticle(request):
 def detail(request,id):
     article = get_object_or_404(Article,id = id)
     return render(request,"detail.html",{"article":article})
+def updateArticle(request,id):
+    article = get_object_or_404(Article,id = id)
+    form = Articleform(request.POST or None,request.FILES or None,instance = article)
+    if form.is_valid():
+        article = form.save(commit=False)
+        
+        article.author = request.user
+        article.save()
+
+        messages.success(request,"Makale başarıyla güncellendi")
+        return redirect("dashboard")
+
+    return render(request,"update.html",{"form":form})
+    
