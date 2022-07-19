@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render,HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render,HttpResponse
 from django.contrib import messages
 from matplotlib.style import context
 # Create your views here.
@@ -41,5 +41,5 @@ def addArticle(request):
     return render(request,"addarticle.html",{"form":form})
 
 def detail(request,id):
-    article = Article.objects.filter(id=id).first()
+    article = get_object_or_404(Article,id = id)
     return render(request,"detail.html",{"article":article})
