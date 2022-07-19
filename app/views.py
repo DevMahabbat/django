@@ -52,7 +52,7 @@ def updateArticle(request,id):
         article.author = request.user
         article.save()
 
-        messages.success(request,"Makale başarıyla güncellendi")
+        messages.success(request,"Artikl ugurla yeniləndi")
         return redirect("dashboard")
 
     return render(request,"update.html",{"form":form})
