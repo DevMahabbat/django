@@ -3,7 +3,7 @@
 
 <div class="nav-wrapper">
             <div class="logo-container">
-                <img class="logo" src="{% static "logo.png" %}" alt="Logo">
+            <a href="../">   <img class="logo" src="{% static "img/logo.png" %}" alt="Logo"></a>
             </div>
             <nav>
                 <input class="hidden" type="checkbox" id="menuToggle">
@@ -16,9 +16,10 @@
                     <ul class="nav-tabs">
                         <li class="nav-tab >Home</li>
                         <li class="nav-tab">Products</li>
-                        <li class="nav-tab"><a href="dashboard">Dashboard</a></li>
+                        
                         {% if request.user.is_authenticated %}
-                            <li class="nav-tab"><a href="logout">Logout</a></li>
+                            <li class="nav-tab"><a href="../dashboard">Dashboard</a></li>
+                            <li class="nav-tab"><a href="../logout">Logout</a></li>
                         {% else %}
                             <li class="nav-tab"><a href="login">Login</a></li>
                             <li class="nav-tab"><a href="register">Register</a></li>
